@@ -20,6 +20,7 @@ ALLOWED_HOSTS = ['your-app.railway.app']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
