@@ -61,8 +61,11 @@ TEMPLATES = [
 ]
 
 # База данных
-DDATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 # Язык и время
 LANGUAGE_CODE = 'ru-ru'
