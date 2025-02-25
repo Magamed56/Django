@@ -18,6 +18,8 @@ ALLOWED_HOSTS = ['your-app.railway.app']
 
 # Установленные приложения
 INSTALLED_APPS = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
