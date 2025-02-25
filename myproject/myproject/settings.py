@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+import dj_database_url
+
+
 LOGIN_URL = 'login'  # Указываем имя URL-маршрута для входа
 # Определяем BASE_DIR как путь к корневой директории проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -56,13 +59,9 @@ TEMPLATES = [
 ]
 
 # База данных
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+DDATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-
 # Язык и время
 LANGUAGE_CODE = 'ru-ru'
 TIME_ZONE = 'Europe/Moscow'
