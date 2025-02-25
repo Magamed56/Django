@@ -11,7 +11,7 @@ SECRET_KEY = 'ваш_секретный_ключ'
 DEBUG = False
 
 # Разрешенные хосты (в продакшене укажите ваши домены)
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['your-app.railway.app']
 
 # Установленные приложения
 INSTALLED_APPS = [
