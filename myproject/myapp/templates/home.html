@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header text-center">
+                <h3>Добро пожаловать, {{ user.first_name }} {{ user.last_name }}!</h3>
+            </div>
+            <div class="card-body">
+                {% if user.is_authenticated %}
+                    <h4>Доступные темы</h4>
+                    <ul class="list-group">
+                        {% for topic in topics %}
+                            <li class="list-group-item">
+                                <a href="{% url 'select_topic' topic.id %}" class="text-decoration-none">{{ topic.name }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <h4 class="mt-4">Ваша выбранная тема</h4>
+                    {% if selected_topic %}
+                        <p>Вы выбрали тему: <strong>{{ selected_topic.name }}</strong></p>
+                        <a href="{% url 'upload' selected_topic.id %}" class="btn btn-primary">Загрузить документ</a>
+                    {% else %}
+                        <p>Вы ещё не выбрали тему.</p>
+                    {% endif %}
+                    <a href="{% url 'logout' %}" class="btn btn-danger mt-3">Выйти</a>
+                {% else %}
+                    <p>Пожалуйста, зарегистрируйтесь или войдите, чтобы продолжить.</p>
+                    <a href="{% url 'register' %}" class="btn btn-primary">Регистрация</a>
+                    <a href="{% url 'login' %}" class="btn btn-success">Войти</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

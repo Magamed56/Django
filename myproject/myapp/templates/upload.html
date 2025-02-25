@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Загрузка документа для {{ topic.name }}</h2>
+    </div>
+    <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Загрузить</button>
+        </form>
+        <a href="{% url 'view_documents' topic.id %}" class="btn btn-secondary mt-3">Просмотреть документы</a>
+    </div>
+</div>
+{% endblock %}
